@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 14:17:49 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/30 18:59:06 by mjuin            ###   ########.fr       */
+/*   Created: 2022/10/30 12:01:30 by mjuin             #+#    #+#             */
+/*   Updated: 2022/10/30 19:08:10 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_swap(t_list **lst, char *name)
+void	ft_rotate(t_list **lst, char *name)
 {
-	if ((*lst)->next != NULL && (*lst) != NULL)
+	t_list	*tmp;
+
+	tmp = (*lst);
+	(*lst) = (*lst)->next;
+	(*lst)->previous = NULL;
+	while ((*lst)->next != NULL)
 	{
-		(*lst)->previous = (*lst)->next;
-		(*lst)->next = (*lst)->next->next;
-		(*lst)->previous->previous = NULL;
-		(*lst)->previous->next = (*lst);
-		*lst = (*lst)->previous;
-		ft_putstr(name);
+		(*lst) = (*lst)->next;
 	}
+	tmp->previous = (*lst);
+	(*lst)->next = tmp;
+	(*lst) = tmp->next;
+	tmp->next = NULL;
+	ft_putstr(name);
 }
 
-void	ft_swap_ss(t_list *lsta, t_list *lstb)
+void	ft_rotate_ss(t_list *lsta, t_list *lstb)
 {
-	swap(&lsta, "");
-	swap(&lstb, "");
-	ft_putstr("ss"\n);
+	ft_rotate(lsta, "");
+	ft_rotate(lstb, "");
+	ft_putstr("rr");
 }
