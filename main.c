@@ -6,38 +6,53 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:44:05 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/30 18:57:27 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/31 10:55:36 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_push_swap.h"
+#include <stdio.h>
 
-int	main(void)
+static void lst_print(t_list **lst)
 {
-	t_list *lst;
+	t_list *tmp;
 
-	lst = lst_db_new(10);
-	lst->next = lst_db_new(5);
-	lst->next->next = lst_db_new(-5);
-	lst->next->next->next = lst_db_new(0);
-	lst->next->next->next->next = lst_db_new(-10);
-	while (lst->next != NULL)
+	tmp = (*lst);
+
+	while ((*lst) != NULL)
 	{
-		printf("%i\n", lst->value);
-		lst->next->previous = lst;
-		lst = lst->next;
+		printf("%i\n", (*lst)->value);
+		(*lst) = (*lst)->next;
 	}
-	printf("%i\n", lst->value);
-	while (lst->previous != NULL)
-		lst = lst->previous;
-	printf("\n-------------------------\n\n");
-	ft_rotate(&lst, "ra\n");
-	printf("\n-------------------------\n\n");
-	while (lst->next != NULL)
+	(*lst) = tmp;
+}
+
+int	main(int ac, char **av)
+{
+	int	argpos;
+	t_list *lsta;
+
+	lsta = NULL;
+	if (ac < 2)
 	{
-		printf("%i\n", lst->value);
-		lst = lst->next;
+		ft_putstr("Error\n");
+		return (0);
 	}
-	printf("%i\n", lst->value);
+	argpos = 0;
+	while (argpos < ac - 1)
+	{
+		if (ft_check_arg(av[argpos + 1]) == -1)
+		{
+			ft_putstr("Error\n");
+			return (0);	
+		}
+		argpos++;
+	}
+	argpos = 0;
+	while (argpos < ac - 1)
+	{
+		lst_db_add_back(&lsta, lst_db_new(ft_atoi(av[argpos + 1])));
+		argpos++;
+	}
+	lst_print(&lsta);
 }
