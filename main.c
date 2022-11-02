@@ -6,14 +6,14 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:44:05 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/01 00:13:06 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/02 10:49:43 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include <stdio.h>
 
-/*static void lst_print(t_list **lst)
+static void lst_print(t_list **lst)
 {
 	t_list *tmp;
 
@@ -25,7 +25,30 @@
 		(*lst) = (*lst)->next;
 	}
 	(*lst) = tmp;
-}*/
+}
+
+void ft_algo(t_list *lst)
+{
+	t_list *lstb;
+
+	lstb = NULL;
+
+	while (ft_checkorder(&lst) == -1)
+	{
+		if (lst->value > lst->next->value)
+		{
+			ft_rotate(&lst, "ra\n");
+		}
+		else
+		{
+			ft_push(&lst, &lstb, "pa\n");
+		}
+		if ((lstb != NULL && lstb->next != NULL) && lstb->value > lstb->next->value)
+			ft_rotate(&lstb, "rb\n");
+		else 
+			ft_push(&lstb, &lst, "pb\n");
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -54,5 +77,6 @@ int	main(int ac, char **av)
 		lst_db_add_back(&lsta, lst_db_new(ft_atoi(av[argpos + 1])));
 		argpos++;
 	}
-	printf("Order = %i\n", ft_checkorder(&lsta));
+	ft_algo(lsta);
+	lst_print(&lsta);
 }

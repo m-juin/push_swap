@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:17:49 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/30 18:59:06 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/02 10:37:08 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_swap(t_list **lst, char *name)
 
 void	ft_swap_ss(t_list *lsta, t_list *lstb)
 {
-	swap(&lsta, "");
-	swap(&lstb, "");
-	ft_putstr("ss"\n);
+	ft_swap(&lsta, "");
+	ft_swap(&lstb, "");
+	ft_putstr("ss\n");
 }
