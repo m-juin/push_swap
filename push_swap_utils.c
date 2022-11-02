@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:39:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/31 10:54:12 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/31 23:17:24 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,22 @@ int	ft_atoi(char *str)
 	if (str[pos] == '\0')
 		return (ret * sign);
 	return (-1);
+}
+
+int	ft_checkorder(t_list **lst)
+{
+	t_list	*start;
+
+	start = (*lst);
+	while ((*lst)->next != NULL)
+	{
+		if ((*lst)->value > (*lst)->next->value)
+		{
+			(*lst) = start;
+			return (-1);
+		}
+		(*lst) = (*lst)->next;
+	}
+	(*lst) = start;
+	return (1);
 }

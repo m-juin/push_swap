@@ -6,7 +6,7 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:44:16 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/31 10:28:29 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/10/31 23:14:51 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	ft_rotate(t_list **lst, char *name);
 void	ft_rotate_ss(t_list *lsta, t_list *lstb);
 void	ft_reverse_rotate(t_list **lst, char *name);
 void	ft_reverse_rotate_ss(t_list *lsta, t_list *lstb);
+int		ft_checkorder(t_list **lst);
 t_list	*lst_db_new(int data);
 void	lst_db_add_back(t_list **lst, t_list *new);

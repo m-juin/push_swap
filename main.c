@@ -6,14 +6,14 @@
 /*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:44:05 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/31 10:55:36 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/01 00:13:06 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include <stdio.h>
 
-static void lst_print(t_list **lst)
+/*static void lst_print(t_list **lst)
 {
 	t_list *tmp;
 
@@ -25,7 +25,7 @@ static void lst_print(t_list **lst)
 		(*lst) = (*lst)->next;
 	}
 	(*lst) = tmp;
-}
+}*/
 
 int	main(int ac, char **av)
 {
@@ -54,5 +54,5 @@ int	main(int ac, char **av)
 		lst_db_add_back(&lsta, lst_db_new(ft_atoi(av[argpos + 1])));
 		argpos++;
 	}
-	lst_print(&lsta);
+	printf("Order = %i\n", ft_checkorder(&lsta));
 }
