@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 12:01:30 by mjuin             #+#    #+#             */
-/*   Updated: 2022/10/30 23:02:16 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/28 16:11:16 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_rotate(t_list **lst, char *name)
+void	ft_rotate(t_db_list **lst, char *name)
 {
-	t_list	*tmp;
+	t_db_list	*tmp;
 
 	tmp = (*lst);
 	(*lst) = (*lst)->next;
@@ -30,7 +30,7 @@ void	ft_rotate(t_list **lst, char *name)
 	ft_putstr(name);
 }
 
-void	ft_rotate_ss(t_list *lsta, t_list *lstb)
+void	ft_rotate_ss(t_db_list *lsta, t_db_list *lstb)
 {
 	ft_rotate(&lsta, "");
 	ft_rotate(&lstb, "");
