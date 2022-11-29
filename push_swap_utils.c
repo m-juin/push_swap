@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:39:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/28 16:19:26 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/29 11:06:06 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	ft_parse_arg(char *arg, t_db_list **lsta)
 		lst_db_add_back(lsta, new);
 		pos++;
 	}
-	return (1);
+	return (pos);
 }
 
 int	ft_checkorder(t_db_list **lst)

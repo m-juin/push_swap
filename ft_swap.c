@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 14:17:49 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/28 16:11:16 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/29 14:17:38 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_swap(t_db_list **lst, char *name)
 		(*lst)->next = (*lst)->next->next;
 		(*lst)->previous->previous = NULL;
 		(*lst)->previous->next = (*lst);
+		if ((*lst)->next != NULL)
+			(*lst)->next->previous = (*lst);
 		*lst = (*lst)->previous;
 		ft_putstr(name);
 	}
