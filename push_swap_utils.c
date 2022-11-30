@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:39:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/30 10:01:47 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 15:37:16 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void ft_putstr(char *str)
+/*void ft_putstr_fd(char *str)
 {
 	int	pos;
 
 	pos = 0;
 	while (str[pos])
 	{
-		write(0, &str[pos], 1);
+		write(1, &str[pos], 1);
 		pos++;
 	}
-}
+}*/
 
 int	ft_isvalidnum(char *str)
 {

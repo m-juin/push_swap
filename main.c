@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:44:05 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/30 13:25:31 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 16:50:18 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ void	ft_three_algo(t_db_list **lsta)
 		ft_reverse_rotate(lsta, "rra\n");
 		ft_reverse_rotate(lsta, "rra\n");
 	}
-	else if (lst->next->value > lst->next->next->value)
+	else if (lst->next->value > lst->next->next->value &&
+		lst->value < lst->next->next->value)
 	{
 		ft_reverse_rotate(lsta, "rra\n");
-		ft_swap(lsta, "sa\n");
+		ft_apply_algo(lsta, 2);
 	}
 	else
 		ft_reverse_rotate(lsta, "rra\n");
@@ -115,7 +116,7 @@ void	ft_five_algo(t_db_list **lsta)
 	ft_push(lsta, &lstb, "pb\n");
 	if (ft_checkorder(&lstb) == 1)
 		ft_swap(&lstb, "sb\n");
-	ft_three_algo(lsta);
+	ft_apply_algo(lsta, 3);
 	ft_push(&lstb, lsta, "pa\n");
 	ft_push(&lstb, lsta, "pa\n");
 }
@@ -171,7 +172,7 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 	{
-		ft_putstr("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
 	argpos = 1;
@@ -182,18 +183,18 @@ int	main(int ac, char **av)
 		valid = ft_parse_arg(av[argpos], &lsta);
 		if (valid == -1)
 		{
-			ft_putstr("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			exit(0);
 		}
 		argcount += valid;
 		argpos++;
 	}
-	ft_printf("\n ---------------------\n     Three solving\n ---------------------\n\n");
+	/*ft_printf("\n ---------------------\n     Three solving\n ---------------------\n\n");
 	lst_print(&lsta);
 	ft_printf("\n ---------------------\n");
 	ft_printf("        Resolve ");
-	ft_printf("\n ---------------------\n\n");
+	ft_printf("\n ---------------------\n\n");*/
 	ft_apply_algo(&lsta, argcount);
-	ft_printf("\n ---------------------\n\n");
-	lst_print(&lsta);
+	/*ft_printf("\n ---------------------\n\n");
+	lst_print(&lsta);*/
 }

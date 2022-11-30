@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:26:45 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/29 13:31:21 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 15:38:31 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_push(t_db_list **src, t_db_list **dst, char *name)
 		(*dst)->previous = NULL;
 		(*src) = (*src)->next;
 		(*dst)->next = NULL;
-		ft_putstr(name);
+		ft_putstr_fd(name, 1);
 		return ;
 	}
 	(*dst)->previous = *src;
@@ -32,5 +32,5 @@ void	ft_push(t_db_list **src, t_db_list **dst, char *name)
 		(*src) = (*src)->next;
 	(*dst)->previous->next = *dst;
 	(*dst) = (*dst)->previous;
-	ft_putstr(name);
+	ft_putstr_fd(name, 1);
 }

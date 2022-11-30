@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 12:01:30 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/28 16:11:16 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 15:38:43 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	ft_rotate(t_db_list **lst, char *name)
 	(*lst)->next = tmp;
 	(*lst) = tmp->next;
 	tmp->next = NULL;
-	ft_putstr(name);
+	ft_putstr_fd(name, 1);
 }
 
 void	ft_rotate_ss(t_db_list *lsta, t_db_list *lstb)
 {
 	ft_rotate(&lsta, "");
 	ft_rotate(&lstb, "");
-	ft_putstr("rr");
+	ft_putstr_fd("rr", 1);
 }

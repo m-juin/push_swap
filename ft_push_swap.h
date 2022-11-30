@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:44:16 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/30 13:23:15 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 15:37:42 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_db_list
 	int				value;
 }	t_db_list;
 
-void	ft_putstr(char *str);
 int		ft_parse_arg(char *arg, t_db_list **lsta);
 void	ft_swap(t_db_list **lst, char *name);
 void	ft_swap_ss(t_db_list *lsta, t_db_list *lstb);
