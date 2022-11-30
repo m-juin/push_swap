@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:44:16 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/29 13:17:53 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 13:23:15 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	ft_reverse_rotate(t_db_list **lst, char *name);
 void	ft_reverse_rotate_ss(t_db_list *lsta, t_db_list *lstb);
 int		ft_checkorder(t_db_list **lst);
 t_db_list	*lst_db_new(char *data);
+int		ft_lst_db_size(t_db_list *lst);
 void	lst_db_add_back(t_db_list **lst, t_db_list *new);
 void	lst_print(t_db_list **lst);
+void	ft_apply_algo(t_db_list **lsta, int count);

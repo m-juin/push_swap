@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:39:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/29 11:06:06 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/11/30 10:01:47 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,19 @@ int	ft_parse_arg(char *arg, t_db_list **lsta)
 		pos++;
 	}
 	return (pos);
+}
+
+int	ft_lst_db_size(t_db_list *lst)
+{
+	int	count;
+
+	count = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return (count);
 }
 
 int	ft_checkorder(t_db_list **lst)
