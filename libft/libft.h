@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <mjuin@student.42angouleme.fr>       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:01:10 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/11 19:27:58 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/01 15:29:25 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
 /* Misc */
-int		ft_atoi(const char *nptr);
+long long int		ft_atoi(const char *nptr);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 int		ft_power(int power, int basesize);

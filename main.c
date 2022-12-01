@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:44:05 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/30 16:50:18 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/01 15:47:04 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,32 +121,6 @@ void	ft_five_algo(t_db_list **lsta)
 	ft_push(&lstb, lsta, "pa\n");
 }
 
-void	ft_ten_algo(t_db_list **lsta)
-{
-	int			count;
-	t_db_list	*smallest;
-	t_db_list	*lstb;
-
-	count = 0;
-	lstb = NULL;
-	while (count < 5)
-	{
-		smallest = ft_getsmallest((*lsta));
-		ft_putfront(lsta, smallest);
-		ft_push(lsta, &lstb, "pb\n");
-		count++;
-	}
-	ft_apply_algo(&lstb, 5);
-	ft_apply_algo(lsta, 5);
-	count = 0;
-	while (count < 5)
-	{
-		ft_rotate(&lstb, "rb\n");
-		ft_push(&lstb, lsta, "pb\n");
-		count++;
-	}
-}
-
 void	ft_apply_algo(t_db_list **lsta, int count)
 {
 	if (ft_checkorder(lsta) == 1)
@@ -159,8 +133,8 @@ void	ft_apply_algo(t_db_list **lsta, int count)
 		ft_four_algo(lsta);
 	else if (count == 5)
 		ft_five_algo(lsta);
-	else if (count == 10)
-		ft_five_algo(lsta);
+	else
+		return ;
 }
 
 int	main(int ac, char **av)
@@ -189,12 +163,12 @@ int	main(int ac, char **av)
 		argcount += valid;
 		argpos++;
 	}
-	/*ft_printf("\n ---------------------\n     Three solving\n ---------------------\n\n");
+	ft_printf("\n ---------------------\n         Base\n ---------------------\n\n");
 	lst_print(&lsta);
 	ft_printf("\n ---------------------\n");
 	ft_printf("        Resolve ");
-	ft_printf("\n ---------------------\n\n");*/
+	ft_printf("\n ---------------------\n\n");
 	ft_apply_algo(&lsta, argcount);
-	/*ft_printf("\n ---------------------\n\n");
-	lst_print(&lsta);*/
+	ft_printf("\n ---------------------\n\n");
+	lst_print(&lsta);
 }

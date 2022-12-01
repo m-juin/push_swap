@@ -6,23 +6,11 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:39:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/30 15:37:16 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/01 15:32:28 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-/*void ft_putstr_fd(char *str)
-{
-	int	pos;
-
-	pos = 0;
-	while (str[pos])
-	{
-		write(1, &str[pos], 1);
-		pos++;
-	}
-}*/
 
 int	ft_isvalidnum(char *str)
 {
@@ -32,6 +20,12 @@ int	ft_isvalidnum(char *str)
 	valid = 1;
 	pos = 0;
 	if (str == NULL)
+		return (-1);
+	if (str[pos] == '-' || str[pos] == '+')
+		pos++;
+	while(str[pos] == '0')
+		pos++;
+	if (ft_strlen(str) - pos > 11)
 		return (-1);
 	while (str[pos])
 	{
@@ -49,7 +43,8 @@ int	ft_isvalidnum(char *str)
 
 t_db_list	*lst_db_new(char *data)
 {
-	t_db_list *new;
+	t_db_list		*new;
+	long long int	value;
 
 	if (ft_isvalidnum(data) == -1)
 		return (NULL);
@@ -58,7 +53,13 @@ t_db_list	*lst_db_new(char *data)
 		return (NULL);
 	new->previous = NULL;
 	new->next = NULL;
-	new->value = ft_atoi(data);
+	value = ft_atoi(data);
+	if (value < INT_MIN || value >INT_MAX)
+	{
+		free(new);
+		return (NULL);
+	}
+	new->value = value;
 	return (new);
 }
 
@@ -81,6 +82,21 @@ void	lst_db_add_back(t_db_list **lst, t_db_list *new)
 	}
 }
 
+int	ft_check_similar(t_db_list **lsta, t_db_list *checked)
+{
+	t_db_list *tmp;
+
+	tmp = (*lsta);
+	while ((*lsta) != NULL)
+	{
+		if ((*lsta)->value == checked->value)
+			return (-1);
+		(*lsta) = (*lsta)->next;
+	}
+	(*lsta) = tmp;
+	return (1);
+}
+
 int	ft_parse_arg(char *arg, t_db_list **lsta)
 {
 	char 	**splitted;
@@ -92,11 +108,13 @@ int	ft_parse_arg(char *arg, t_db_list **lsta)
 	while (splitted && splitted[pos])
 	{
 		new = lst_db_new(splitted[pos]);
-		if (new == NULL)
+		if (new == NULL || ft_check_similar(lsta, new) == -1)
 			return (-1);
 		lst_db_add_back(lsta, new);
 		pos++;
 	}
+	if (pos == 0)
+		return (-1);
 	return (pos);
 }
 

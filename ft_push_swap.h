@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:44:16 by mjuin             #+#    #+#             */
-/*   Updated: 2022/11/30 15:37:42 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/01 10:43:00 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef struct s_db_list
 {
 	struct s_db_list	*previous;
 	struct s_db_list	*next;
-	int				value;
+	int					value;
 }	t_db_list;
 
 int		ft_parse_arg(char *arg, t_db_list **lsta);
@@ -35,3 +35,4 @@ int		ft_lst_db_size(t_db_list *lst);
 void	lst_db_add_back(t_db_list **lst, t_db_list *new);
 void	lst_print(t_db_list **lst);
 void	ft_apply_algo(t_db_list **lsta, int count);
+int		ft_check_similar(t_db_list **lsta, t_db_list *checked);

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mjuin <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:09:17 by mjuin             #+#    #+#             */
-/*   Updated: 2022/09/28 12:05:32 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/01 15:29:20 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+long long int	ft_atoi(const char *nptr)
 {
 	int			i;
 	int			sign;
-	long int	output;
+	long long int	output;
 
 	i = 0;
 	sign = 1;
