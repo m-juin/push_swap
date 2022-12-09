@@ -6,14 +6,14 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:09:17 by mjuin             #+#    #+#             */
-/*   Updated: 2022/12/02 11:02:21 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/08 12:54:22 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long long int	ft_atoi(const char *nptr)
 {
-	int			i;
-	int			sign;
+	int				i;
+	int				sign;
 	long long int	output;
 
 	i = 0;

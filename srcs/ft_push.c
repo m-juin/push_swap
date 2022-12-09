@@ -6,11 +6,11 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:26:45 by mjuin             #+#    #+#             */
-/*   Updated: 2022/12/02 13:47:47 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/07 16:31:22 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../includes/ft_push_swap.h"
 
 void	ft_push(t_db_list **src, t_db_list **dst, char *name)
 {

@@ -6,11 +6,11 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 10:39:24 by mjuin             #+#    #+#             */
-/*   Updated: 2022/12/01 15:32:28 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/09 10:42:39 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "../includes/ft_push_swap.h"
 
 int	ft_isvalidnum(char *str)
 {
@@ -23,7 +23,7 @@ int	ft_isvalidnum(char *str)
 		return (-1);
 	if (str[pos] == '-' || str[pos] == '+')
 		pos++;
-	while(str[pos] == '0')
+	while (str[pos] == '0')
 		pos++;
 	if (ft_strlen(str) - pos > 11)
 		return (-1);
@@ -41,50 +41,9 @@ int	ft_isvalidnum(char *str)
 	return (1);
 }
 
-t_db_list	*lst_db_new(char *data)
-{
-	t_db_list		*new;
-	long long int	value;
-
-	if (ft_isvalidnum(data) == -1)
-		return (NULL);
-	new = malloc(sizeof(t_db_list));
-	if (!new)
-		return (NULL);
-	new->previous = NULL;
-	new->next = NULL;
-	value = ft_atoi(data);
-	if (value < INT_MIN || value >INT_MAX)
-	{
-		free(new);
-		return (NULL);
-	}
-	new->value = value;
-	return (new);
-}
-
-void	lst_db_add_back(t_db_list **lst, t_db_list *new)
-{
-	t_db_list *tmp;
-
-	tmp = (*lst);
-	if (lst == NULL)
-		lst = &new;
-	else if ((*lst) == NULL)
-		(*lst) = new;
-	else
-	{
-		while ((*lst)->next != NULL)
-			(*lst) = (*lst)->next;
-		(*lst)->next = new;
-		new->previous = (*lst);
-		(*lst) = tmp;
-	}
-}
-
 int	ft_check_similar(t_db_list **lsta, t_db_list *checked)
 {
-	t_db_list *tmp;
+	t_db_list	*tmp;
 
 	tmp = (*lsta);
 	while ((*lsta) != NULL)
@@ -99,9 +58,9 @@ int	ft_check_similar(t_db_list **lsta, t_db_list *checked)
 
 int	ft_parse_arg(char *arg, t_db_list **lsta)
 {
-	char 	**splitted;
+	char		**splitted;
 	t_db_list	*new;
-	int		pos;
+	int			pos;
 
 	splitted = ft_split(arg, ' ');
 	pos = 0;
@@ -109,26 +68,19 @@ int	ft_parse_arg(char *arg, t_db_list **lsta)
 	{
 		new = lst_db_new(splitted[pos]);
 		if (new == NULL || ft_check_similar(lsta, new) == -1)
+		{
+			if (new != NULL)
+				free(new);
+			ft_freesplit(splitted);
 			return (-1);
+		}
 		lst_db_add_back(lsta, new);
 		pos++;
 	}
+	ft_freesplit(splitted);
 	if (pos == 0)
 		return (-1);
 	return (pos);
-}
-
-int	ft_lst_db_size(t_db_list *lst)
-{
-	int	count;
-
-	count = 0;
-	while (lst != NULL)
-	{
-		lst = lst->next;
-		count++;
-	}
-	return (count);
 }
 
 int	ft_checkorder(t_db_list **lst)
@@ -149,16 +101,24 @@ int	ft_checkorder(t_db_list **lst)
 	return (1);
 }
 
-void lst_print(t_db_list **lst)
+int	ft_count(t_db_list *elem, int order)
 {
-	t_db_list *tmp;
+	int			count;
+	int			value;
+	t_db_list	*tmp;
 
-	tmp = (*lst);
-
-	while ((*lst) != NULL)
+	tmp = elem;
+	count = 0;
+	value = elem->value;
+	while (elem != NULL)
 	{
-		ft_printf("%i\n", (*lst)->value);
-		(*lst) = (*lst)->next;
+		if (elem->value < value)
+			count++;
+		if (order == 1)
+			elem = elem->next;
+		else
+			elem = elem->previous;
 	}
-	(*lst) = tmp;
+	elem = tmp;
+	return (count);
 }

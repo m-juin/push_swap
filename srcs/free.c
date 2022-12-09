@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_digitcount.c                                    :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 19:26:46 by mjuin             #+#    #+#             */
-/*   Updated: 2022/12/07 10:49:52 by mjuin            ###   ########.fr       */
+/*   Created: 2022/12/09 10:42:18 by mjuin             #+#    #+#             */
+/*   Updated: 2022/12/09 10:43:31 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_digitcount(unsigned int nbr)
-{
-	int	count;
+#include "../includes/ft_push_swap.h"
 
-	count = 0;
-	while (nbr > 9)
+void	ft_freesplit(char **splitted)
+{
+	int	pos;
+
+	pos = 0;
+	if (splitted == NULL)
+		return ;
+	while (splitted[pos] != NULL)
 	{
-		nbr /= 10;
-		count++;
+		free(splitted[pos]);
+		pos++;
 	}
-	return (count);
+	free(splitted);
+}
+
+void	ft_free(t_db_list **lst)
+{
+	t_db_list	*tmp;
+
+	while (lst != NULL && (*lst) != NULL)
+	{
+		tmp = (*lst)->next;
+		free((*lst));
+		(*lst) = tmp;
+	}
 }
