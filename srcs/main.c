@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 13:44:05 by mjuin             #+#    #+#             */
-/*   Updated: 2022/12/09 10:43:28 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/12 11:54:43 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ int	main(int ac, char **av)
 	t_db_list	*lsta;
 
 	if (ac < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (0);
-	}
 	argpos = 0;
 	argcount = 0;
 	lsta = NULL;

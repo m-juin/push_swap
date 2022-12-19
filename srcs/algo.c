@@ -6,7 +6,7 @@
 /*   By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 16:28:01 by mjuin             #+#    #+#             */
-/*   Updated: 2022/12/08 10:21:10 by mjuin            ###   ########.fr       */
+/*   Updated: 2022/12/16 10:05:05 by mjuin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_four_algo(t_db_list **lsta)
 	ft_putfront_a(lsta, smallest);
 	lstb = NULL;
 	ft_push(lsta, &lstb, "pb\n");
-	ft_three_algo(lsta);
+	ft_apply_algo(lsta, 3);
 	ft_push(&lstb, lsta, "pa\n");
 }
 

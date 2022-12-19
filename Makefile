@@ -6,7 +6,7 @@
 #    By: mjuin <mjuin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 11:27:42 by mjuin             #+#    #+#              #
-#    Updated: 2022/12/09 10:44:54 by mjuin            ###   ########.fr        #
+#    Updated: 2022/12/16 10:06:45 by mjuin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY:
-	all clean fclean re
-	
+.PHONY:	all clean fclean re
