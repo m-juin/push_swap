@@ -41,4 +41,4 @@ According to the subject there only one contraint for this project:
 
 ## Output exemple
 
-[url=https://imgbb.com/][img]https://i.ibb.co/bBBMvx3/Capture-d-cran-2023-11-09-111916.png[/img][/url]
+<img width="170" alt="Screenshot" src="https://github.com/m-juin/push_swap/assets/114703612/de639f3e-a97e-4fee-8bfd-ff51837ea14c">
