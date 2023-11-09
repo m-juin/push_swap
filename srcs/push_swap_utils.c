@@ -14,10 +14,8 @@
 
 int	ft_isvalidnum(char *str)
 {
-	int	valid;
 	int	pos;
 
-	valid = 1;
 	pos = 0;
 	if (str == NULL)
 		return (-1);
