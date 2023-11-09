@@ -31,9 +31,9 @@ According to the subject there is 2 contraints for this project:
 
 ``make`` to compile.
 
-``make clean`` to clean all compiled file without the library file.
+``make clean`` to clean all compiled files without the program.
 
-``make fclean`` to clean all compiled file with the library file.
+``make fclean`` to clean all compiled files with the program.
 
 ``make re`` to fclean then make.
 
