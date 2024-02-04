@@ -4,7 +4,7 @@
 # Project
 Push Swap is one of the three projects in the 42 program third circle, It is the first sorting algorithm of the students and are noted on the amount of operation required to sort a stack of int using only 2 stacks and some basic operations.
 
-# Contraint
+# Constraints
 According to the subject there is 2 contraints for this project:
 *  The global variables are prohibited.
 *  The whole files of the projects need to follow 42 norm ([Link](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf))
